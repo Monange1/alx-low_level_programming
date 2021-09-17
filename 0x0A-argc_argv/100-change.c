@@ -38,15 +38,6 @@ int calculate_cents(int num)
 	return (coins);
 }
 
-/**
- * main - prints the minimum number of
- * coins to make change for an amount of money
- * @argc: amount of arguement
- * @argv: an array of inputs from argc
- *
- * Return: 0 for success
- */
-
 int main(int argc, char *argv[])
 {
 	int number;
