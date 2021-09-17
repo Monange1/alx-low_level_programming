@@ -1,10 +1,11 @@
 #include <stdio.h>
-#include "main.h"
-int main (int argc, char *argv[])
+#include <stdlib.h>
+
+
+int main(int argc, char **argv)
 {
-
-  printf ("argc\"%s\".\n",argv[0]);
-
-  return 0;
+	while (argc--)
+	{		printf("%s\n", *argv++);
+	}
+	return (0);
 }
-
