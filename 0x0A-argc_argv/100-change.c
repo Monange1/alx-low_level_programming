@@ -2,64 +2,40 @@
 #include <stdlib.h>
 
 /**
- * calculate_cents - calculates and return cents
- * @num: input params
- * Return: coins
- */
-
-int calculate_cents(int num)
-{
-	int coins = 0;
-
-	while (num)
-	{
-		if (num >= 25)
-		{
-			num -= 25;
-		}
-		else if (num >= 10)
-		{
-			num -= 10;
-		}
-		else if (num >= 5)
-		{
-			num -= 5;
-		}
-		else if (num >= 2)
-		{
-			num -= 2;
-		}
-		else if (num >= 1)
-		{
-			num -= 1;
-		}
-		coins++;
-	}
-	return (coins);
-}
-
-/**
- * main - prints the minimum number of
- * coins to make change for an amount of money
- * @argc: amount of arguement
- * @argv: an array of inputs from argc
+ * main - prints minimum number of coins to make change for an amount of money.
+ * @argc: number of arguments passed to the function
+ * @argv: argument vector of pointers to strings
  *
- * Return: 0 for success
+ * Return: 0 if no errors, else 1
  */
-
 int main(int argc, char *argv[])
 {
-	int number;
+  int a, n = 0, i, t;
+  int c[5] = {25, 10, 5, 2, 1};
 
-	if (argc != 2)
-	{
-		return (printf("Error\n"), 1);
-	}
-	number = atoi(argv[1]);
-	if (number < 0)
-	{
-		return (printf("Error\n"), 1);
-	}
-	printf("%d\n", calculate_cents(number));
-	return (0);
+  if (argc != 2)
+  {
+    puts("Error");
+    return (1);
+  }
+  a = atoi(argv[1]);
+  if (a <= 0)
+  {
+    puts("0");
+    return (1);
+  }
+  else
+  {
+    for (i = 0; i < 5; i++)
+    {
+      t = a / c[i];
+      a -= t * c[i];
+      n += t;
+      if (a == 0)
+        break;
+    }
+  }
+  printf("%d\n", n);
+  return (0);
 }
+
