@@ -2,24 +2,26 @@
 
 /**
  * int_index - searches for an integer
- * @array: array of integers
+ * @array: array to serch through
  * @size: size of array
- * @cmp: function pointer
- * Return: index of first element that matches with `cmp`, or -1 if none found
+ * @cmp: function used to compare
+ *
+ * Return: first index for which cmp doesn't return 0, or -1
  */
-
 int int_index(int *array, int size, int (*cmp)(int))
 {
-	int i;
+	int i, r;
 
-	if (size < 1 || array == NULL || cmp == NULL)
-		return (-1);
-
-	for (i = 0; i < size; i++)
+	if (size > 0 && array && cmp)
 	{
-		if (cmp(array[i]))
+		for (i = 0; i < size; i++)
+		{
+			r = cmp(array[i]);
+			if (r)
+				break;
+		}
+		if (i < size)
 			return (i);
 	}
-
 	return (-1);
 }
