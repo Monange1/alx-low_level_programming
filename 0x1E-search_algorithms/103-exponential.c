@@ -1,8 +1,3 @@
-/*
- * File: 103-exponential.c
- * Auth: Nobert Patrick
- */
-
 #include "search_algos.h"
 
 /**
